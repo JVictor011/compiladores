@@ -4,9 +4,10 @@
 <Factor> ::= (PLUS | MINUS)* <Factor>
 <Factor> ::= <Pow>
 <Pow> ::= <Atom> (<Pow> <Factor>)*
-<Atom> ::= INT | FLOAT | STRING | ID | <ListExp> | <TupleExp> | LPAR <Exp> RPAR
+<Atom> ::= INT | FLOAT | STRING | ID | BOOL | TRUE | FALSE | <ListExp> | <TupleExp> | LPAR <Exp> RPAR
 <ListExp> ::= LSQUARE [ <Exp> (COMMA <Exp>)* ] RSQUARE
 <TupleExp> ::= LPAR <Exp> COMMA <Exp> (COMMA <Exp>)* RPAR
+<Bool> ::= TRUE | FALSE
 
 PLUS é o +
 MUL é o *

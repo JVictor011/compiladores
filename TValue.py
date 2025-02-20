@@ -117,3 +117,32 @@ class TTuple(TValue):
     
     def __repr__(self):
         return f"({', '.join(map(str, self.value))})"
+
+class TBoolean(TValue):
+    def __init__(self, value):
+        self.value = bool(value)
+
+    def setMemory(self, memory=None):
+        self.memory = memory
+        return self
+
+    def not_op(self):  
+        return TBoolean(not self.value).setMemory(self.memory), None
+
+    def and_op(self, other):
+        if isinstance(other, TBoolean):
+            return TBoolean(self.value and other.value).setMemory(self.memory), None
+        return super().add(other)
+
+    def or_op(self, other): 
+        if isinstance(other, TBoolean):
+            return TBoolean(self.value or other.value).setMemory(self.memory), None
+        return super().add(other)
+
+    def copy(self):
+        copy = TBoolean(self.value)
+        copy.setMemory(self.memory)
+        return copy
+
+    def __repr__(self):
+        return "true" if self.value else "false"

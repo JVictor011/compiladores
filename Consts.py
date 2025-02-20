@@ -24,6 +24,8 @@ class Consts:
     LSQUARE   = "[" # Left  Box brackets [
     RSQUARE   = "]" # Right Box brackets ]
     COMMA      = ","
+    TRUE  = 'true'
+    FALSE = 'false'
 
 
     # Exemplos de Palavras reservadas
@@ -35,6 +37,8 @@ class Consts:
         LET,
         IF,
         WHILE,
-        FOR
+        FOR,
+        TRUE,
+        FALSE
     ]
 

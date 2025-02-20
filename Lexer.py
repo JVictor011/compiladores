@@ -114,10 +114,15 @@ class Lexer:
     ##############################
     def __makeId(self):
         lexema = ''
-        while self.current != None and self.current in Consts.LETRAS_DIGITOS + Consts.UNDER:
+        while self.current is not None and self.current in Consts.LETRAS_DIGITOS + Consts.UNDER:
             lexema += self.current
             self.__advance()
 
+        if lexema == "true":
+            return Token(Consts.TRUE, lexema)
+        elif lexema == "false":
+            return Token(Consts.FALSE, lexema)
+        
         tokType = Consts.KEY if lexema in Consts.KEYS else Consts.ID
         return Token(tokType, lexema)
-    ##############################
+

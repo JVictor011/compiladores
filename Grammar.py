@@ -84,6 +84,9 @@ class Atom(Grammar): # A variable from Grammar G
         elif(tok.type == Consts.STRING):
             self.NextToken()
             return ast.success(NoString(tok))
+        elif tok.type in (Consts.TRUE, Consts.FALSE):
+            self.NextToken()
+            return ast.success(NoBoolean(tok))
         ##############################
         elif tok.type == Consts.LSQUARE:
             listExp = ast.registry(ListExp(self.parser).Rule())

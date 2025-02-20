@@ -159,3 +159,13 @@ class NoTuple(Visitor):
 
     def __repr__(self):
         return f"({', '.join(map(str, self.elements))})"
+
+class NoBoolean(Visitor):
+    def __init__(self, tok):
+        self.value = tok.type == Consts.TRUE
+
+    def visit(self, operator):
+        return operator.success(TBoolean(self.value).setMemory(operator))
+
+    def __repr__(self):
+        return "true" if self.value else "false"
