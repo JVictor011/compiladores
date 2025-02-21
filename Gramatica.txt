@@ -8,6 +8,9 @@
 <ListExp> ::= LSQUARE [ <Exp> (COMMA <Exp>)* ] RSQUARE
 <TupleExp> ::= LPAR <Exp> COMMA <Exp> (COMMA <Exp>)* RPAR
 <Bool> ::= TRUE | FALSE
+<PrintStmt> ::= "print" LPAR <Exp> RPAR
+<InputStmt> ::= "//" .* | "/*" .* "*/"
+<CompOP> ::= EQEQ | NEQ | LT | GT | LTE | GTE
 
 PLUS é o +
 MUL é o *
@@ -16,6 +19,12 @@ MINUS é o -
 POW é o ^
 LPAR é o (
 RPAR é o )
+EQEQ é ==
+NEQ é !=
+LT é <
+GT é >
+LTE é <=
+GTE é >=
 INT é um inteiro qualquer
 FLOAT é um float qualquer
 ID é qualquer identificador
